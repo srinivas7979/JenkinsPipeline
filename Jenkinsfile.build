@@ -12,25 +12,13 @@ pipeline {
 		triggers {
 			cron('H 4 * * 4')
 		}
-	environment {
-		http_proxy = "http://proxy.png.intel.com:911"
-        https_proxy = "http://proxy.png.intel.com:912"
-        ftp_proxy = "http://proxy.png.intel.com:911"
-        no_proxy = "127.0.0.1,localhost,.intel.com"
-        socks_server = "proxy.png.intel.com:1080"
-        socks_direct = "intel.com,.intel.com,10.0.0.0/8,192.168.0.0/16,localhost,127.0.0.0/8,134.134.0.0/16"
-        http_direct = "intel.com,.intel.com,10.0.0.0/8,192.168.0.0/16,localhost,127.0.0.0/8,134.134.0.0/16"
-        //Redirect Git protocol to use SOCKS proxy via oe-git-proxy script
-        GIT_PROXY_COMMAND = "/nfs/png/disks/esc_yocto_disk1/opt/git_proxy/git_ksli_proxy_command"
-        ALL_PROXY = "socks://proxy.png.intel.com:1080"
-	}
+	
 	options {
 		timestamps()
 		disableConcurrentBuilds()
 		buildDiscarder(logRotator(numToKeepStr: '90', artifactDaysToKeepStr: '30'))
 	}
 	stages {
-		
 		stage('Cleanup') {
 				steps {
                     deleteDir()
