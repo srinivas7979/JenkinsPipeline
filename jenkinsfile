@@ -53,7 +53,7 @@ pipeline {
 				 
 				   
 				   
-				   bat '''ECHO HELLO'''
+				   shell 'echo "hello world"'
 				
 			}
 		}
@@ -61,9 +61,8 @@ pipeline {
 			steps {
 				 
 				   
-				   
-				   bat '''ECHO PRINT'''
-				
+				   shell 'echo "This is pipeline syntax"'
+				   				
 			}
 		}
 	}
