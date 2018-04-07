@@ -48,7 +48,7 @@ pipeline {
             }
         }
 		
-		stage ('BUILD') {
+		stage ('excute shell') {
 			steps {
 				 
 				   
@@ -57,7 +57,7 @@ pipeline {
 				
 			}
 		}
-		stage ('BUILDS') {
+		stage ('excute shell') {
 			steps {
 				 
 				   
